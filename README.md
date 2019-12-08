@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Proxy
+You can change the proxy value to map the development api endpoint to avoid CORS issue. (Work around)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
