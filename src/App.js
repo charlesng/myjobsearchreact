@@ -39,7 +39,7 @@ class App extends Component {
 
   render() {
     const { jobs } = this.state;
-    const style = {backgroundColor:"#F1F2F3"};
+    const style = {backgroundColor:"#F1F2F3",paddingTop:20};
     return (
       <div className="container" style={style}>
         <JobContentHeader />

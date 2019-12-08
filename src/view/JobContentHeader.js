@@ -6,8 +6,7 @@ import JobSearchBar from "./JobSearchBar";
 
 
 const useStyles = makeStyles(() => ({
-    headerContainer: {
-        marginTop: 50,
+    headerContainer: {        
         background: `url(${logo}) no-repeat `,
         backgroundColor: "#FFFFFF",
         minHeight: 300,
