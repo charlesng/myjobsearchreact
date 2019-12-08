@@ -1,20 +1,14 @@
 import React from "react";
 import { Paper, Typography } from '@material-ui/core';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { orange } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
 import logo from '../images/city.jpg';
 import JobSearchBar from "./JobSearchBar";
 
-const customTheme = createMuiTheme({
-    status: {
-      danger: orange[500],
-    },
-  });
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     headerContainer: {
         marginTop: 50,
-        background: `url(${logo}) no-repeat `,        
+        background: `url(${logo}) no-repeat `,
         minHeight: 300,
         marginBottom: 20,
         display: 'flex',
@@ -24,10 +18,10 @@ const useStyles = makeStyles(theme => ({
         padding: 20
     },
     headerTitle: {
-        fontWeight: 'bold',        
+        fontWeight: 'bold',
     },
     headerSubTitle: {
-        marginBottom: 50,        
+        marginBottom: 50,
     }
 }));
 
