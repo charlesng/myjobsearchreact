@@ -1,9 +1,10 @@
-import React, { useState, Component } from 'react';
-import Table from './view/Table';
-import Form from './view/Form';
+import React, { Component } from 'react';
 import JobService from './service/ApiService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import PostJobForm from './view/Form';
+import JobTable from './view/JobTable';
+import JobContentHeader from './view/JobContentHeader';
 
 class App extends Component {
   state = {
@@ -15,7 +16,7 @@ class App extends Component {
     this.jobService = new JobService();
   }
 
-  removeJobListener = jobId => {    
+  removeJobListener = jobId => {
     this.jobService.deleteJob(jobId)
       .then(() => this.getAllJobs());
   }
@@ -43,14 +44,13 @@ class App extends Component {
 
     return (
       <div className="container">
-        <h1>My Job Search</h1>
-        <p>Add New Job and its company name and description, or remove the job by pressing the delete button</p>
-        <Table
+        <JobContentHeader />
+        <JobTable
           jobs={jobs}
           removeJobListener={this.removeJobListener}
         />
-        <h3>Add New</h3>
-        <Form handleSubmit={this.postJobListener} />
+        <h3>Add New Job</h3>
+        <PostJobForm handleSubmit={this.postJobListener} />
       </div>
     );
   }

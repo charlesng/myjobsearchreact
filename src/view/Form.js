@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { Button, TextField } from '@material-ui/core';
 
-class Form extends Component {
+
+class PostJobForm extends Component {
     constructor(props) {
         super(props)
 
@@ -20,38 +22,41 @@ class Form extends Component {
 
     handleChange = e => {
         const { name, value } = e.target
-      
+
         this.setState({
-          [name]: value,
+            [name]: value,
         })
-      }
+    }
 
     render() {
-        const { title, company_name,description } = this.state;
+        const { title, company_name, description } = this.state;
 
         return (
             <form>
-                <label>Title</label>
-                <input
+                <TextField
+                    id="standard-basic"
+                    label="Title"
                     type="text"
                     name="title"
                     value={title}
                     onChange={this.handleChange} />
-                <label>Company Name</label>
-                <input
+                <TextField
+                    id="standard-basic"
+                    label="Company Name"
                     type="text"
                     name="company_name"
                     value={company_name}
                     onChange={this.handleChange} />
-                <label>Desription</label>
-                <input
+                <TextField
+                    id="standard-basic"
+                    label="Desription"
                     type="text"
                     name="description"
                     value={description}
                     onChange={this.handleChange} />
-                <input type="button" value="Submit" onClick={this.submitForm} />
+                <Button variant="contained" color="primary" value="Submit" onClick={this.submitForm}>Submit</Button>
             </form>
         );
     }
 }
-export default Form;
+export default PostJobForm;
