@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import JobService from './service/ApiService';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import PostJobForm from './view/Form';
 import JobTable from './view/JobTable';
 import JobContentHeader from './view/JobContentHeader';
 
@@ -41,16 +39,17 @@ class App extends Component {
 
   render() {
     const { jobs } = this.state;
-
+    const style = {backgroundColor:"#F1F2F3"};
     return (
-      <div className="container">
+      <div className="container" style={style}>
         <JobContentHeader />
         <JobTable
           jobs={jobs}
           removeJobListener={this.removeJobListener}
+        
         />
-        <h3>Add New Job</h3>
-        <PostJobForm handleSubmit={this.postJobListener} />
+        {/* <h3>Add New Job</h3>
+        <PostJobForm handleSubmit={this.postJobListener} /> */}
       </div>
     );
   }
