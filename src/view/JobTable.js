@@ -125,10 +125,8 @@ const JobCardBody = props => {
 class JobTable extends Component {
     render() {
         const { jobs, removeJobListener } = this.props        
-        const style = {backgroundColor:"#F1F2F3"};
         return (
-            <JobCardBody jobs={jobs} removeJobListener={removeJobListener}
-                style={style}
+            <JobCardBody jobs={jobs} removeJobListener={removeJobListener}        
             />
         )
     }

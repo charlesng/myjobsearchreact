@@ -18,7 +18,7 @@ const JobSearchBar = () => {
     const classes = useStyles();
     return (
         <Grid container spacing={4}>
-            <Grid item md={10}>
+            <Grid item md={9}>
                 <Paper component="form" className={[classes.centeralized]} >
                     <IconButton type="submit" aria-label="search">
                         <SearchIcon />
@@ -31,7 +31,7 @@ const JobSearchBar = () => {
                     />
                 </Paper>
             </Grid>
-            <Grid item md={2} className={[classes.centeralized]}>
+            <Grid item md={3} className={[classes.centeralized]}>
                 <Button  variant="contained" color="primary" value="Submit" >Advance Filter</Button>
             </Grid>
         </Grid>

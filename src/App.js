@@ -38,10 +38,9 @@ class App extends Component {
   }
 
   render() {
-    const { jobs } = this.state;
-    const style = {backgroundColor:"#F1F2F3",paddingTop:20};
+    const { jobs } = this.state;    
     return (
-      <div className="container" style={style}>
+      <div>
         <JobContentHeader />
         <JobTable
           jobs={jobs}
