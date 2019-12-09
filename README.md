@@ -1,9 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Function Component
+
+The project is using functional Component rather than the traditional class Component
+
 ## Proxy
+
 You can change the proxy value to map the development api endpoint to avoid CORS issue. (Work around)
 
 ## Design
+
 Reference from this:
 https://dribbble.com/shots/8369503-WorkFinder-Job-Board-Platform
 
