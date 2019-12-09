@@ -13,10 +13,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
 import ReportIcon from '@material-ui/icons/Report';
 import WorkIcon from '@material-ui/icons/Work';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import App from '../App';
 import logo from '../images/workfinder.png';
-import {Typography} from '@material-ui/core';
+import UserProfilePic from '../images/someone.jpg';
+import { ListItemAvatar, Typography, Paper, Grid, Avatar } from '@material-ui/core';
 
 const drawerWidth = 300;
 
@@ -37,16 +40,38 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 40
   },
   menuItem: {
-    fontSize:8
+    fontSize: 8
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  centeralized: {    
+  centeralized: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  drawerBottomAction: {
+    background: '#F9FAFA',
+    minHeight: 60,
+    padding: theme.spacing(1),
+  },
+  drawerBottomProfile: {
+    background: '#F9FAFA',
+  },
+  drawerMain: {
+    flex: 'initial'
+  },
+  drawerBottom: {
+    display: 'flex',
+    flex: 'auto',
+    alignItems: 'flex-end',
+    marginBottom: 40
+  },
+  drawerContainer: {
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column'
   }
 }));
 
@@ -70,22 +95,53 @@ function ResponsiveDrawer(props) {
     }
   }
 
-  const drawer = (
-    <div>
-      <div className={classes.centeralized}>
-        <img src={logo}/>
-      </div>      
-      <Divider />
-      <List>
-        {['Home', 'Search Jobs', 'Favourite Companies', 'By Your Specialty', 'High Salaries', 'Top Companies', 'Post Job', 'Report Us'].map((text, index) => (
-          <ListItem button key={text} >
-            <ListItemIcon>{renderList(index)}</ListItemIcon>
-            <ListItemText 
-            disableTypography
-        primary={<Typography style={{fontSize:12}}>{text}</Typography>} />
+  const drawerBottom = (
+    <Grid container spacing={2}>
+      <Grid item md={6}>
+        <Paper className={[classes.drawerBottomAction, classes.centeralized]}><BookmarkIcon /></Paper>
+      </Grid>
+      <Grid item md={6}>
+        <Paper className={[classes.drawerBottomAction, classes.centeralized]}><SettingsApplicationsIcon /></Paper>
+      </Grid>
+      <Grid item md={12}>
+        <Paper className={classes.drawerBottomProfile}>
+          <ListItem alignItems="flex-start">
+            <ListItemAvatar>
+              <Avatar alt="Remy Sharp" src={UserProfilePic} />
+            </ListItemAvatar>
+            <ListItemText
+              primary="Matt Frost"
+              secondary="Designer"
+            />
           </ListItem>
-        ))}
-      </List>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+
+
+  const drawer = (
+    <div className={classes.drawerContainer}>
+      <div className={classes.drawerMain}>
+        <div className={classes.centeralized}>
+          <img src={logo} alt="Company logo" />
+        </div>
+        <Divider />
+        <List>
+          {['Home', 'Search Jobs', 'Favourite Companies', 'By Your Specialty', 'High Salaries', 'Top Companies', 'Post Job', 'Report Us'].map((text, index) => (
+            <ListItem button key={text} >
+              <ListItemIcon>{renderList(index)}</ListItemIcon>
+              <ListItemText
+                disableTypography
+                primary={<Typography style={{ fontSize: 12 }}>{text}</Typography>} />
+            </ListItem>
+          ))}
+        </List>
+      </div>
+      <div className={classes.drawerBottom}>
+
+        {drawerBottom}
+      </div>
     </div>
   );
 
