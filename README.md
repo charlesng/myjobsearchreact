@@ -1,13 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Function Component
+## Technical usage
+1. Typescript Support (The project is converted to Typescript)
+2. Functional Component (The project is using functional Component rather than the traditional class Component)
+3. Proxy (You can change the proxy value to map the development api endpoint to avoid CORS issue. (Work around))
 
-The project is using functional Component rather than the traditional class Component
-
-## Proxy
-
-You can change the proxy value to map the development api endpoint to avoid CORS issue. (Work around)
-
+## Screenshots
+<img src="https://user-images.githubusercontent.com/5112837/70481271-5c330500-1ae2-11ea-97a2-5131b70049c7.png" >
+<img src="https://user-images.githubusercontent.com/5112837/70481268-5c330500-1ae2-11ea-9ca4-bc249336250c.png" >
+<img src="https://user-images.githubusercontent.com/5112837/70481269-5c330500-1ae2-11ea-8509-c217bb3639d3.png" >
+  
 ## Design
 
 Reference from this:
