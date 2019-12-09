@@ -85,10 +85,10 @@ const JobCardBody = props => {
         return (
             <Card className={classes.card}>
                 <Grid container spacing={4}>
-                    <Grid item xs={1} className={[classes.centeralized]}>
+                    <Grid item md={1} sm={3} xs={3} className={[classes.centeralized]}>
                         <Avatar aria-label="recipe" className={classes.avatar} variant="rounded" src={item.src}></Avatar>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item md={5} sm={9} xs={9}>
                         <Typography variant="subtitle1" gutterbottom className={classes.jobItemTitle}>
                             {item.title}
                         </Typography>
@@ -96,7 +96,7 @@ const JobCardBody = props => {
                             {item.company_name}
                         </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item md={4} sm={6} xs={12}>
                         <Typography variant="subtitle1" gutterbottom className={classes.jobItemTitle}>
                             {item.location}
                         </Typography>
@@ -104,7 +104,7 @@ const JobCardBody = props => {
                             Location
                             </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item md={2} sm={6} xs={12}>
                         <Typography variant="subtitle1" gutterbottom className={classes.jobItemTitle}>
                             {item.salary}
                         </Typography>
@@ -124,9 +124,9 @@ const JobCardBody = props => {
 
 class JobTable extends Component {
     render() {
-        const { jobs, removeJobListener } = this.props        
+        const { jobs, removeJobListener } = this.props
         return (
-            <JobCardBody jobs={jobs} removeJobListener={removeJobListener}        
+            <JobCardBody jobs={jobs} removeJobListener={removeJobListener}
             />
         )
     }

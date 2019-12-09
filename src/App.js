@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import JobService from './service/ApiService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import JobTable from './view/JobTable';
-import JobContentHeader from './view/JobContentHeader';
+import JobContentHeader from './view/Banner';
 
 class App extends Component {
   state = {
@@ -38,17 +38,14 @@ class App extends Component {
   }
 
   render() {
-    const { jobs } = this.state;    
+    const { jobs } = this.state;
     return (
       <div>
         <JobContentHeader />
         <JobTable
           jobs={jobs}
           removeJobListener={this.removeJobListener}
-        
         />
-        {/* <h3>Add New Job</h3>
-        <PostJobForm handleSubmit={this.postJobListener} /> */}
       </div>
     );
   }

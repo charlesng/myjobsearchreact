@@ -19,7 +19,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import App from '../App';
 import logo from '../images/workfinder.png';
 import UserProfilePic from '../images/someone.jpg';
-import { ListItemAvatar, Typography, Paper, Grid, Avatar } from '@material-ui/core';
+import { ListItemAvatar, Typography, Paper, Grid, Avatar, IconButton, AppBar, Toolbar } from '@material-ui/core';
 
 const drawerWidth = 300;
 
@@ -84,6 +84,7 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
   const renderList = idx => {
     switch (idx) {
       case 0: return <HomeIcon />
@@ -97,13 +98,13 @@ function ResponsiveDrawer(props) {
 
   const drawerBottom = (
     <Grid container spacing={2}>
-      <Grid item md={6}>
+      <Grid item md={6} xs={6}>
         <Paper className={[classes.drawerBottomAction, classes.centeralized]}><BookmarkIcon /></Paper>
       </Grid>
-      <Grid item md={6}>
+      <Grid item md={6} xs={6}>
         <Paper className={[classes.drawerBottomAction, classes.centeralized]}><SettingsApplicationsIcon /></Paper>
       </Grid>
-      <Grid item md={12}>
+      <Grid item md={12} xs={12}>
         <Paper className={classes.drawerBottomProfile}>
           <ListItem alignItems="flex-start">
             <ListItemAvatar>
@@ -139,7 +140,6 @@ function ResponsiveDrawer(props) {
         </List>
       </div>
       <div className={classes.drawerBottom}>
-
         {drawerBottom}
       </div>
     </div>
@@ -180,6 +180,24 @@ function ResponsiveDrawer(props) {
         </Hidden>
       </nav>
       <main className={classes.content}>
+        <Hidden smUp implementation="css">
+          <AppBar position="fixed" className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <Avatar alt="Remy Sharp" src={logo} />
+              </IconButton>
+              <Typography variant="h6" noWrap>
+                Work Finder
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Hidden>
         <App />
       </main>
     </div>
