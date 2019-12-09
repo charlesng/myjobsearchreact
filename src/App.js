@@ -5,7 +5,7 @@ import JobTable from './view/JobTable';
 import JobContentHeader from './view/Banner';
 
 const App = () => {
-  const [jobs] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     getAllJobs();
@@ -15,9 +15,7 @@ const App = () => {
     const jobService = new JobService();
     jobService.getAllJobs()
       .then(result => {
-        this.setState({
-          jobs: result.data,
-        });
+        setJobs(result.data)
       });
   }
 
