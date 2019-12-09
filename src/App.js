@@ -1,35 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import JobService from './service/ApiService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import JobTable from './view/JobTable';
 import JobContentHeader from './view/Banner';
 
-class App extends Component {
-  state = {
-    jobs: []
-  };
+const App = () => {
+  const [jobs] = useState([]);
 
-  constructor(props) {
-    super(props);
-    this.jobService = new JobService();
-  }
+  useEffect(() => {
+    getAllJobs();
+  })
 
-  removeJobListener = jobId => {
-    this.jobService.deleteJob(jobId)
-      .then(() => this.getAllJobs());
-  }
-
-  postJobListener = job => {
-    this.jobService.createJob(job)
-      .then(() => this.getAllJobs());
-  }
-
-  componentDidMount() {
-    this.getAllJobs();
-  }
-
-  getAllJobs() {
-    this.jobService.getAllJobs()
+  const getAllJobs = () => {
+    const jobService = new JobService();
+    jobService.getAllJobs()
       .then(result => {
         this.setState({
           jobs: result.data,
@@ -37,19 +21,15 @@ class App extends Component {
       });
   }
 
-  render() {
-    const { jobs } = this.state;
-    return (
-      <div>
-        <JobContentHeader />
-        <JobTable
-          jobs={jobs}
-          removeJobListener={this.removeJobListener}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <JobContentHeader />
+      <JobTable
+        jobs={jobs}
+      />
+    </div>
+  );
 
+}
 
 export default App;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Card, Avatar } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -112,9 +112,6 @@ const JobCardBody = props => {
                             Yearly
                             </Typography>
                     </Grid>
-                    {/* <Grid item xs={2}>
-                      <Button variant="contained" color="primary" onClick={() => props.removeJobListener(item.id)}>Delete</Button>
-                    </Grid> */}
                 </Grid>
             </Card>
         );
@@ -122,14 +119,13 @@ const JobCardBody = props => {
     return <div>{rows}</div>;
 }
 
-class JobTable extends Component {
-    render() {
-        const { jobs, removeJobListener } = this.props
-        return (
-            <JobCardBody jobs={jobs} removeJobListener={removeJobListener}
-            />
-        )
-    }
+const JobTable = () => {
+    const [jobs] = useState([]);
+    return (
+        <JobCardBody jobs={jobs}
+        />
+    )
 }
+
 
 export default JobTable
