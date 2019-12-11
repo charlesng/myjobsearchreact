@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import 'typeface-roboto';
-import ResponsiveDrawer from './view/ResponsiveDrawer';
-
+import ResponsiveDrawer from './components/ResponsiveDrawer';
 
 ReactDOM.render(<ResponsiveDrawer />, document.getElementById('root'));
 

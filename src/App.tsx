@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import JobTable from "./view/JobTable";
-import JobContentHeader from "./view/Banner";
-import { JobService } from "./service/ApiService";
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import JobTable from './components/JobTable';
+import JobContentHeader from './components/Banner';
+import { JobService } from './service/ApiService';
+import { Job } from './model/Job';
 
 const App = () => {
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs]: [Job[], any] = useState([]);
 
   useEffect(() => {
     getAllJobs();
-  });
+  }, []);
 
   const getAllJobs = () => {
     const jobService = new JobService();
