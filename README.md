@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. Functional Component (The project is using functional Component rather than the traditional class Component)
 3. Proxy (You can change the proxy value to map the development api endpoint to avoid CORS issue. (Work around))
 
+## Ngrok
+
+- You can easily add the temporary tunnel for external access by running cmd `ngrok http 3000 -host-header='localhost:3000'` (Refer to the documentation of ngrok https://ngrok.com/ )
+
 ## API call
 
 - The API call of the project is referenced from another project "myjobsearchlaravel"
